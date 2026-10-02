@@ -27,7 +27,7 @@ descf=$tp/$alnum-desc.msg
 detailf=$tp/$alnum-detailf.msg
 link=${link%$'\r'}
 curl -s $link -o $nf
-egrep "<title>" $nf | egrep -o "[a-Z][0-9]{2,}-[0-9]{2,}-[0-9]{2,}" > $cnf
+egrep "<title>" 2090-all.msg | egrep -o "[a-zA-Z][0-9]{2,}-[0-9]{2,}-[0-9]{2,}" > $cnf
 egrep "<title>" $nf | cut -d ":" -f2  | sed "s#</title>##g" > $descf
 egrep -i "successful" $nf  > $detailf
 d1=`egrep -o "[0-9]{2} $emf $curyear" $nf`
