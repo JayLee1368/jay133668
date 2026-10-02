@@ -10,6 +10,7 @@ atf=/tmp/get_alerts/info/all_title_msg
 acve=/tmp/get_alerts/info/all_cvenum.msg
 alink=/tmp/get_alerts/info/link.msg
 aan=/tmp/get_alerts/info/all_alert_num.msg
+[ ! -d /tmp/get_alerts/info ] && mkdir -p /tmp/get_alerts/info || echo "alreadt exsit"
 curl -s $hardlink | egrep -B15 "$mon" | egrep "pubDate|title|guid" > $msg_file
 egrep guid $msg_file | sed  "s/<guid>//g" | sed  "s#</guid>##g" | awk '{print $1}' > $alink
 
